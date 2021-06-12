@@ -1,0 +1,76 @@
+﻿{
+    ViewData["Title"] = "Brands";
+}
+@model IEnumerable<Ecommerce.ItemVM>;
+<div class="main">
+    <!-- MAIN CONTENT -->
+    <div class="main-content">
+        <div class="container-fluid">
+            <h3 class="page-title">Tables</h3>
+
+            <div class="row">
+                <div class="col-md-6" style="width: 100%;">
+                    <!-- TABLE HOVER -->
+                    <div class="panel">
+                        <div class="panel-heading">
+                            <h3 class="panel-title">Categories</h3>
+                        </div>
+                        <div class="dropdown" style="margin-top: -4rem;margin-left: 106rem;">
+                            <a style="color: black" ; href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="icon-submenu lnr lnr-chevron-down"></i> <span></span><span>More Options</span> </a>
+                            <ul class="dropdown-menu" style="position: absolute;top: 100%;left: -68px;text-align: left;">
+                                <li>
+                                    <a href="@Url.ActionLink("Create_Items",controller:"Items")"><i class="fa fa-plus-square"></i> Create New Category </a>
+                                </li>
+                                <li>
+                                 <a href="@Url.ActionLink("Index",controller:"Items")" class=""><i class="fa fa-product-hunt"></i> <span>Items</span></a></li>
+                                
+                            </ul>
+                        </div>
+                        <div class="panel-body">
+                            <table class="table table-hover">
+                                <thead>
+                                    <tr>
+                                        <th>ID</th>
+                                        <th>Item Image</th>
+                                        <th>Item Name</th>
+                                        <th>Item Description</th>
+                                        <th>Item Price</th>
+                                        <th>Item Date</th>
+                                        <th style="position: relative;left: -1rem;">Action</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach (var Item in Model)
+                                    {
+                        <tr>
+                            <td>@Item.Id</td>
+                            <td><img class="fa-circle" style="height:50px;width:50px;border-radius:50%;" src="~/Imageuploads/Items/@(Item.ImageId).png"></td>
+                            <td>@Item.Name</td>
+                            <td>@Item.Description</td>
+                            <td>@Item.Price</td>
+                            <td>@Item.CreationDate</td>
+                            <td>
+                                <div class="dropdown">
+                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="icon-submenu fa fa-ellipsis-h"></i></a>
+                                    <ul class="dropdown-menu" style="position: absolute;top: 100%;left: -68px;text-align: left;">
+                                        <li> <a href="#"><i class="lnr lnr-eye"></i>View</a></li>
+                                        <li> <a href="@Url.ActionLink("Get_Item_Again",controller:"Items",new { id=Item.Id })"><i class="fa fa-check-circle"></i>Active Category</a></li>
+                                    </ul>
+                                </div>
+                            </td>
+                        </tr>
+}
+
+
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <!-- END TABLE HOVER -->
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <!-- END MAIN CONTENT -->
+</div>

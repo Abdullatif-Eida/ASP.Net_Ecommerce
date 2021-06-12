@@ -1,0 +1,66 @@
+﻿{
+    ViewData["Title"] = "Create Category";
+}
+
+@model Ecommerce.CategoryVM;
+<div class="main">
+    <!-- MAIN CONTENT -->
+    <div class="main-content">
+        <div class="container-fluid">
+            <h3 class="page-title">Edit Category</h3>
+            <div class="row">
+                <div class="col-md-12">
+
+                    <!-- INPUTS -->
+                    <div class="panel">
+                        <div class="panel-heading">
+                            <h3 class="panel-title"></i>Edit Category</h3>
+                        </div>
+                        <form method="post" enctype="multipart/form-data">
+                            <input type="hidden" asp-for="Id" />
+                            <div class="panel-body">
+                                <label> Name </label>
+                                <input asp-for="Name" type="text" required="required" class="form-control" placeholder="Enter Brand Name">
+                                <br>
+                                <label> Parent </label>
+                                <select class="form-control" asp-items="@ViewBag.ListParentCategories" asp-for="ParentId">
+                                    <option selected="">select parent</option>
+                                </select>
+                                <br>
+                                <label> Description </label>
+                                <textarea asp-for="Description" class="form-control" required="required" placeholder="Enter Brand Description" rows="4"></textarea>
+                                <br>
+                                <label> Short Description </label>
+                                <textarea asp-for="ShortDescription" class="form-control" required="required" placeholder="Enter Brand Description" rows="4"></textarea>
+                                <br>
+                                <label> Enter Category Images </label>
+                                @if (Model.Images.Count > 0)
+                                {
+                                    foreach (var image in Model.Images)
+                                    {
+                                        <div>
+                                            <div> <a href="@Url.ActionLink("DeleteImage","Categories",new {id=image})">Delete</a>  </div>
+                                            <img src="~/Imageuploads/Categories/@(image).png" />
+                                        </div>
+                                    }
+                                }
+
+                                <input  name="files" multiple="multiple" type="file" class="" placeholder="Enter Brand Image">
+                                <p class="demo-button" style="margin-top: 2rem;margin: 0 0 -31px;">
+                                    <button type="submit" class="btn btn-outline-primary btn-toastr" data-context="info" data-message="Hi, I'm here" data-position="bottom-right">Edit Category</button>
+                                </p>
+                                <br />
+
+                            </div>
+
+                        </form>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <!-- END MAIN CONTENT -->
+</div>
+

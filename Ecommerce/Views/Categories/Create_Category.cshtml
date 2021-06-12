@@ -1,0 +1,75 @@
+﻿{
+    ViewData["Title"] = "Create Brands";
+}
+@section Style{
+    <link rel="stylesheet" href="~/~/assets/vendor/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="~/~/assets/vendor/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="~/~/assets/vendor/linearicons/style.css">
+    <link rel="stylesheet" href="~/~/assets/vendor/toastr/toastr.min.css">
+    <!-- MAIN CSS -->
+    <link rel="stylesheet" href="~/~/assets/css/main.css">
+    <!-- FOR DEMO PURPOSES ONLY. You should remove this in your project -->
+    <link rel="stylesheet" href="~/~/assets/css/demo.css">
+    <!-- GOOGLE FONTS -->
+    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700" rel="stylesheet">
+    <!-- ICONS -->
+    <link rel="apple-touch-icon" sizes="76x76" href="~/~/assets/img/apple-icon.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="~/~/assets/img/favicon.png">
+}
+@model Ecommerce.CategoryVM;
+<div class="main">
+    <!-- MAIN CONTENT -->
+    <div class="main-content">
+        <div class="container-fluid">
+            <h3 class="page-title"><i class="fa fa-plus-square"></i> <span></span> Create New Category</h3>
+            <div class="row">
+                <div class="col-md-12">
+
+                    <!-- INPUTS -->
+                    <div class="panel">
+                        <div class="panel-heading">
+                            <h3 class="panel-title"></i> Create New Category</h3>
+                        </div>
+                        <form method="post" action="@Url.ActionLink("Create_CategorySuccess",controller:"Categories")" enctype="multipart/form-data">
+                            <input type="hidden" asp-for="Id" />
+                            <div class="panel-body">
+                                <label> Name </label>
+                                <input asp-for="Name" type="text" required="required" class="form-control" placeholder="Enter Brand Name">
+                                <br>
+                                <label> Parent </label>
+                                <select class="form-control" asp-items="@ViewBag.ListParentCategories" asp-for="ParentId">
+                                    <option selected="">select parent</option>
+                                </select>
+                                <br>
+                                <label> Description </label>
+                                <textarea asp-for="Description" class="form-control" required="required" placeholder="Enter Brand Description" rows="4"></textarea>
+                                <br>
+                                <label> Short Description </label>
+                                <textarea asp-for="ShortDescription" class="form-control" required="required" placeholder="Enter Brand Description" rows="4"></textarea>
+                                <br>
+                                <label> Enter Category Images </label>
+                                <input required="required" name="files" multiple="multiple" type="file" class="" placeholder="Enter Brand Image">
+                                <p class="demo-button" style="margin-top: 2rem;margin: 0 0 -31px;">
+                                    <button type="submit" class="btn btn-outline-primary btn-toastr" data-context="info" data-message="Hi, I'm here" data-position="bottom-right">Add New Category</button>
+                                </p>
+                                <br />
+
+                            </div>
+
+                        </form>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <!-- END MAIN CONTENT -->
+</div>
+@section Scripts {
+    <script src="~/assets/vendor/jquery/jquery.min.js"></script>
+    <script src="~/assets/vendor/bootstrap/js/bootstrap.min.js"></script>
+    <script src="~/assets/vendor/jquery-slimscroll/jquery.slimscroll.min.js"></script>
+    <script src="~/assets/vendor/toastr/toastr.min.js"></script>
+    <script src="~/assets/scripts/klorofil-common.js"></script>
+}

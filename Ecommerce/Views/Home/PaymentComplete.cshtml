@@ -1,0 +1,43 @@
+﻿@{ Layout = "_UserLayout";
+
+
+    @model Ecommerce.Vm.ChekoutVM;
+}
+<!-- Breadcrumb Start -->
+<div class="breadcrumb-wrap">
+    <div class="container-fluid">
+        <ul class="breadcrumb">
+            <li class="breadcrumb-item"><a href="#">Home</a></li>
+            <li class="breadcrumb-item"><a href="#">Products</a></li>
+            <li class="breadcrumb-item active">Checkout</li>
+        </ul>
+    </div>
+</div>
+<!-- Breadcrumb End -->
+
+<div style=" width: 500px; height: auto; overflow: hidden; border-radius: 12px; border: thin solid #ddd;margin-left:34rem;margin-bottom:3rem " class="wrapperAlert">
+
+    <div class="contentAlert">
+
+        <div style=" width: 100%; color: white; overflow: hidden; min-height: 250px; position: relative; padding: 40px 0; background: rgb(0,0,0); background:#FF6F61;" class="topHalf">
+
+            <p style="margin-bottom: 30px; margin-left: 12rem;">
+                <svg style="fill: white;" viewBox="0 0 512 512" width="100" title="check-circle">
+                    <path d="M504 256c0 136.967-111.033 248-248 248S8 392.967 8 256 119.033 8 256 8s248 111.033 248 248zM227.314 387.314l184-184c6.248-6.248 6.248-16.379 0-22.627l-22.627-22.627c-6.248-6.249-16.379-6.249-22.628 0L216 308.118l-70.059-70.059c-6.248-6.248-16.379-6.248-22.628 0l-22.627 22.627c-6.248 6.248-6.248 16.379 0 22.627l104 104c6.249 6.249 16.379 6.249 22.628.001z" />
+                </svg>
+            </p>
+            <h1 style=" font-size: 2.25rem; margin-left:4rem; display: block; font-weight: 500; letter-spacing: 0.15rem; text-shadow: 0 2px rgba(128, 128, 128, 0.6);">Congratulations</h1>
+
+        </div>
+
+        <div style=" align-items: center; padding: 35px;" class="bottomHalf">
+
+            <p style=" font-weight: 500; font-size: 1.05rem; margin-bottom: 20px;">Well Done!, We are waiting for you in our store again...</p>
+
+            <a href="@Url.ActionLink("Index","Home")"> <button style=" margin-left:8rem; border: none; color: white; cursor: pointer; border-radius: 12px; padding: 10px 18px; background-color: #FF6F61; text-shadow: 0 1px rgba(128, 128, 128, 0.75);" id="alertMO">Go to Home Page</button></a>
+
+        </div>
+
+    </div>
+
+</div>

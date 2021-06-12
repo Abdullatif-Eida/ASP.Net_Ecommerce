@@ -1,0 +1,62 @@
+﻿{
+    ViewData["Title"] = "Create Brands";
+}
+
+@model Ecommerce.CategoryVM;
+<div class="main">
+    <!-- MAIN CONTENT -->
+    <div class="main-content">
+        <div class="container-fluid">
+            <h3 class="page-title"><i class="fa fa-plus-square"></i>  <span></span> Create New Category</h3>
+            <div class="panel-body">
+               
+                <div class="alert alert-success alert-dismissible" role="alert">
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <i class="fa fa-check-circle"></i> The Category have been succesfully Added
+                </div>
+                
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+
+                    <!-- INPUTS -->
+                    <div class="panel">
+                        <div class="panel-heading">
+                            <h3 class="panel-title"></i> Create New Category</h3>
+                        </div>
+                        <form method="post" enctype="multipart/form-data">
+                            <input type="hidden" asp-for="Id" />
+                            <div class="panel-body">
+                                <label> Name </label>
+                                <input asp-for="Name" type="text" value="" required="required" class="form-control" placeholder="Enter Brand Name">
+                                <br>
+                                <label> Parent </label>
+                                <select class="form-control" value="" asp-items="@ViewBag.ListParentCategories" asp-for="ParentId">
+                                    <option selected="">select parent</option>
+                                </select>
+                                <br>
+                                <label> Description </label>
+                                <textarea asp-for="Description" value="" class="form-control" required="required" placeholder="Enter Brand Description" rows="4"></textarea>
+                                <br>
+                                <label> Short Description </label>
+                                <textarea asp-for="ShortDescription" value="" class="form-control" required="required" placeholder="Enter Brand Description" rows="4"></textarea>
+                                <br>
+                                <label> Enter Category Images </label>
+                                <input required="required" name="files" value="" multiple="multiple" type="file" class="" placeholder="Enter Brand Image">
+                                <p class="demo-button" style="margin-top: 2rem;margin: 0 0 -31px;">
+                                    <button type="submit" class="btn btn-outline-primary btn-toastr" data-context="info" data-message="Hi, I'm here" data-position="bottom-right">Add New Category</button>
+                                </p>
+                                <br />
+
+                            </div>
+
+                        </form>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <!-- END MAIN CONTENT -->
+</div>

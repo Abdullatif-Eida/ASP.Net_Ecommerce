@@ -13,9 +13,11 @@ using Microsoft.Data.OData.Query.SemanticAst;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Ecommerce.Vm;
 using static Ecommerce.Vm.ChekoutVM;
+using Microsoft.AspNetCore.Authorization;
 
 namespace Ecommerce.Controllers
 {
+    [Authorize]
     public class ItemsController : Controller
     {
         public EcommerceContext _dbContext { get; set; }

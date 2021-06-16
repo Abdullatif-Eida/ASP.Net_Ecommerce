@@ -1,4 +1,5 @@
 ﻿using Ecommerce.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using System;
@@ -9,6 +10,7 @@ using System.Threading.Tasks;
 
 namespace Ecommerce.Controllers
 {
+    [Authorize]
     public class AdminHomeController : Controller
     {
         private readonly ILogger<AdminHomeController> _logger;

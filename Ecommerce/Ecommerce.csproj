@@ -22,4 +22,11 @@
     <Folder Include="wwwroot\Imageuploads\Items\" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Content Update="Views\Register\Login.cshtml">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+  </ItemGroup>
+
 </Project>

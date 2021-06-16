@@ -21,6 +21,12 @@ namespace Ecommerce.Areas.Identity
 
                 services.AddDefaultIdentity<AppUser>(options => options.SignIn.RequireConfirmedAccount = true)
                     .AddEntityFrameworkStores<EcommerceContext>();
+
+                services.ConfigureApplicationCookie(optins => {
+                    optins.LoginPath = $"/Register/Login";
+                    optins.LogoutPath = $"/Register/Logout";
+                    optins.AccessDeniedPath = $"/Register/Login";
+                });
             });
         }
     }

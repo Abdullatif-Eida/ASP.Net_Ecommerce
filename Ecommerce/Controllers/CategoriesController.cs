@@ -11,9 +11,11 @@ using Ecommerce.Enum;
 using Ecommerce.Models;
 using Microsoft.Data.OData.Query.SemanticAst;
 using Microsoft.AspNetCore.Mvc.Rendering;
+using Microsoft.AspNetCore.Authorization;
 
 namespace Ecommerce.Controllers
 {
+    [Authorize]
     public class CategoriesController : Controller
     {
         public EcommerceContext _dbContext { get; set; }

@@ -39,6 +39,7 @@ namespace Ecommerce.Controllers
                 Price = item.Price,
                 ImageId = _dbContext.Attachments.FirstOrDefault(items=> items.RecordId == item.Id.ToString()&& items.RecordType == RecordType.Items)?.FileName
             });
+
             return View(Items);
         }
 
@@ -199,7 +200,7 @@ namespace Ecommerce.Controllers
             return RedirectToAction("Edit_ItemSuccess");
         }
 
-        //Deleted Category
+        //Deleted Item
         public IActionResult DeletedItems()
         {
             var Items = _dbContext.Items.Where(item => item.IsDeleted == true).ToList().Select(item => new ItemVM()
@@ -212,6 +213,18 @@ namespace Ecommerce.Controllers
                 ImageId = _dbContext.Attachments.FirstOrDefault(items => items.RecordId == item.Id.ToString() && items.RecordType == RecordType.Items)?.FileName
             });
             return View(Items);
+        }
+
+        public IActionResult ContactUsindex()
+        {
+            var ContactList = _dbContext.ContactUs.ToList().Select(ContactList => new Vm.ContactUs()
+            {
+                FullName = ContactList.FullName,
+                Subject = ContactList.Subject,
+                Email = ContactList.Email,
+                Message = ContactList.Message,
+            });
+            return View(ContactList);
         }
 
         public IActionResult Orderindex()

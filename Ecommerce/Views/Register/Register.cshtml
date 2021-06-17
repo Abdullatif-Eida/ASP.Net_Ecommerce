@@ -11,28 +11,28 @@
                     <div class="register-form">
                         <div class="row">
                             <div class="col-md-6">
-                                <label>First Name</label>
-                                <input class="form-control" type="text" placeholder="First Name">
+                                <label asp-for="FirstName">First Name</label>
+                                <input asp-for="FirstName" class="form-control" type="text" placeholder="First Name">
                             </div>
                             <div class="col-md-6">
-                                <label>Last Name"</label>
-                                <input class="form-control" type="text" placeholder="Last Name">
+                                <label asp-for="LastName">Last Name"</label>
+                                <input asp-for="LastName" class="form-control" type="text" placeholder="Last Name">
                             </div>
                             <div class="col-md-6">
                                 <label asp-for="Email">E-mail</label>
                                 <input asp-for="Email" class="form-control" type="text" placeholder="E-mail">
                             </div>
                             <div class="col-md-6">
-                                <label>Mobile No</label>
-                                <input class="form-control" type="text" placeholder="Mobile No">
+                                <label asp-for="Phone">Mobile No</label>
+                                <input asp-for="Phone" class="form-control" type="text" placeholder="Mobile No">
                             </div>
                             <div class="col-md-6">
                                 <label asp-for="Password">Password</label>
-                                <input asp-for="Password" class="form-control" type="text" placeholder="Password">
+                                <input asp-for="Password" class="form-control" type="password" placeholder="Password">
                             </div>
                             <div class="col-md-6">
-                                <label>Retype Password</label>
-                                <input class="form-control" type="text" placeholder="Password">
+                                <label asp-for="RePassword">Retype Password</label>
+                                <input asp-for="RePassword" class="form-control" type="text" placeholder="Password">
                             </div>
                             <div class="col-md-12">
                                 <button type="submit" class="btn">Submit</button>

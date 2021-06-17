@@ -31,27 +31,34 @@ namespace Ecommerce.Controllers
             {
                 Email = user.Email,
                 UserName = user.Email.ToUpper(),
+                LockoutEnabled = false,
+                EmailConfirmed = true,
             };
-                  await _userManager.CreateAsync(appUser, user.Password);
+                var resutlt=   await _userManager.CreateAsync(appUser, user.Password);
             return View();
         }
-        //public IActionResult Login()
-        //{
-        //    return View();
-        //}
-        //[HttpPost]
-        //public async Task<IActionResult> Login(RegisterVM user)
-        //{
-        //    var result = await _signInManager.PasswordSignInAsync(user.Email, user.Password, true, false);
-        //    if(result.Succeeded)
-        //    {
-        //        return RedirectToAction("Index", "AdminHome");
-        //    }
-        //    else
-        //    {
-        //        return RedirectToAction("LoginFaild");
-        //    }
-        //    return View();
-        //}
+        public IActionResult Login()
+        {
+            return View();
+        }
+        public IActionResult LoginFaild()
+        {
+            return View();
+        }
+        [HttpPost]
+        public async Task<IActionResult> Login(RegisterVM user)
+        {
+            var result = await _signInManager.PasswordSignInAsync(user.Email, user.Password, true, false);
+            if(result.Succeeded)
+            {
+                return RedirectToAction("Index", "AdminHome");
+            }
+            else
+            {
+                return RedirectToAction("LoginFaild");
+            }
+        }
+
+
     }
 }

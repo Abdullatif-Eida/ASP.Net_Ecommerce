@@ -19,7 +19,7 @@ namespace Ecommerce.Areas.Identity.Data
         public DbSet<Models.Categories> Categories { get; set; }
         public DbSet<Models.Items> Items { get; set; }
         public DbSet<Models.Orders> Orders { get; set; }
-        
+        public DbSet<Models.ContactUs> ContactUs { get; set; }
         protected override void OnModelCreating(ModelBuilder builder)
         {
             base.OnModelCreating(builder);

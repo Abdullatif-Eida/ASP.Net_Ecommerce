@@ -11,6 +11,11 @@ namespace Ecommerce
 {
     public class ItemVM
     {
+        public List<ItemVM> ListCollections { get; set; }
+        public List<ItemVM> ListItems { get; set; }
+        public List<CategoryVM> ListCategoryItems { get; set; }
+        public List<CategoryVM> ListCategory { get; set; }
+        public List<BrandVM> ListBrands { get; set; }
         public int Id { get; set; }
         public String Name { get; set; }
         public String ShortDescription { get; set; }

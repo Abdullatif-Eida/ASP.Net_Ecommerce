@@ -9,5 +9,9 @@ namespace Ecommerce.Vm
     {
         public List<ItemVM> ListCollections { get; set; }
         public List<ItemVM> ListItems { get; set; }
+        public List<CategoryVM> ListCategoryItems { get; set; }
+        public List<CategoryVM> ListCategory { get; set; }
+
+        public List<BrandVM> ListBrands { get; set; }
     }
 }

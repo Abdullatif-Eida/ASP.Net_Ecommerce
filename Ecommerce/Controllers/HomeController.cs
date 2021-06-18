@@ -65,7 +65,7 @@ namespace Ecommerce.Controllers
             .FileName
 
             }).ToList();
-            var listBrands = _context.Brands.Where(brands => brands.IsDeleted == false).Select(brands => new BrandVM()
+            var listBrands = _context.Brands.Where(brands => brands.IsDeleted == false).Take(6).Select(brands => new BrandVM()
             {
                 Name = brands.BrandName,
                 ImageId = brands.ImageId,

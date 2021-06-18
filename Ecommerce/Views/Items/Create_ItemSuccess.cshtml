@@ -1,6 +1,8 @@
-﻿{
-    ViewData["Title"] = "Create Brands";
+﻿@{
+    ViewData["Title"] = "Create Items";
+    ViewData["Active"] = true;
 }
+
 
 @model Ecommerce.ItemVM;
 @using Ecommerce.Enum;
@@ -8,7 +10,14 @@
     <!-- MAIN CONTENT -->
     <div class="main-content">
         <div class="container-fluid">
-            <h3 class="page-title"><i class="fa fa-plus-square"></i>  <span></span> Create New Item</h3>
+            <h3 class="page-title">
+                <span style="color:darkslategrey">
+                    @if (ViewBag.Title != null)
+                    {
+        @ViewBag.Title}
+                </span>
+            </h3>
+
             <div class="panel-body">
 
                 <div class="alert alert-success alert-dismissible" role="alert">
@@ -37,12 +46,12 @@
                                 </select>
                                 <br>
                                 <label> Brands Parent </label>
-                                <select class="form-control" asp-items="@ViewBag.ListBrands" asp-for="BrandId">
+                                <select class="form-control"  required="required" asp-items="@ViewBag.ListBrands" asp-for="BrandId">
                                     <option selected="">select Brand</option>
                                 </select>
                                 <br>
                                 <label> Color </label>
-                                <select class="form-control" asp-items="@Html.GetEnumSelectList<Color>()" asp-for="Color">
+                                <select class="form-control"  required="required" asp-items="@Html.GetEnumSelectList<Color>()" asp-for="Color">
                                     <option selected="">select Brand</option>
                                 </select>
                                 <br>
@@ -55,7 +64,7 @@
                                 <label> Short Description </label>
                                 <textarea asp-for="ShortDescription" class="form-control" required="required" placeholder="Enter Brand Description" rows="4"></textarea>
                                 <br>
-                                <label> Enter Category Images </label>
+                                <label> Enter Item Images </label>
                                 <input required="required" name="files" multiple="multiple" type="file" class="" placeholder="Enter Brand Image">
                                 <p class="demo-button" style="margin-top: 2rem;margin: 0 0 -31px;">
                                     <button type="submit" class="btn btn-outline-primary btn-toastr" data-context="info" data-message="Hi, I'm here" data-position="bottom-right">Add New Item</button>

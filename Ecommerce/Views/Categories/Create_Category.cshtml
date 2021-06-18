@@ -1,5 +1,6 @@
-﻿{
-    ViewData["Title"] = "Create Brands";
+﻿@{
+    ViewData["Title"] = "Create Categories Page";
+    ViewData["Active"] = true;
 }
 @section Style{
     <link rel="stylesheet" href="~/~/assets/vendor/bootstrap/css/bootstrap.min.css">
@@ -21,7 +22,13 @@
     <!-- MAIN CONTENT -->
     <div class="main-content">
         <div class="container-fluid">
-            <h3 class="page-title"><i class="fa fa-plus-square"></i> <span></span> Create New Category</h3>
+            <h3 class="page-title">
+                <span style="color:darkslategrey">
+                    @if (ViewBag.Title != null)
+                    {
+                        @ViewBag.Title}
+                </span>
+            </h3>
             <div class="row">
                 <div class="col-md-12">
 

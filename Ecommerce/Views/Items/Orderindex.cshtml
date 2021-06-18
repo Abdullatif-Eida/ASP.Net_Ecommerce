@@ -1,32 +1,30 @@
-﻿{
-    ViewData["Title"] = "Brands";
+﻿@{
+    ViewData["Title"] = "Orders";
+    ViewData["Active"] = true;
 }
+
 @using Ecommerce.Vm;
 @model IEnumerable<Ecommerce.Vm.ChekoutVM>;
 <div class="main">
     <!-- MAIN CONTENT -->
     <div class="main-content">
         <div class="container-fluid">
-            <h3 class="page-title">Tables</h3>
+            <h3 class="page-title">
+                <span style="color:darkslategrey">
+                    @if (ViewBag.Title != null)
+                    {
+                        @ViewBag.Title}
+                </span>
+            </h3>
+
 
             <div class="row">
                 <div class="col-md-6" style="width: 100%;">
                     <!-- TABLE HOVER -->
                     <div class="panel">
                         <div class="panel-heading">
-                            <h3 class="panel-title">Items</h3>
-                        </div>
-                        <div class="dropdown" style="margin-top: -4rem;margin-left: 106rem;">
-                            <a style="color: black" ; href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="icon-submenu lnr lnr-chevron-down"></i> <span></span><span>More Options</span> </a>
-                            <ul class="dropdown-menu" style="position: absolute;top: 100%;left: -68px;text-align: left;">
-                                <li>
-                                    <a href="@Url.ActionLink("Create_Items",controller:"Items")"><i class="fa fa-plus-square"></i> Create New Category </a>
-                                </li>
-                                <li>
-                                    <a href="@Url.ActionLink("DeletedItems",controller:"Items")"><i class="fa lnr lnr-trash"></i> Trash </a>
-                                </li>
-                            </ul>
-                        </div>
+                            <h3 class="panel-title">Orders</h3>
+                        </div>                       
                         <div class="panel-body">
                             <table class="table table-hover">
                                 <thead>
@@ -44,41 +42,41 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                          @foreach (var Order in Model)
-                          {
-                           <tr>
-                            <td>@Order.Id</td>
-                            <td>@Order.FirstName</td>
-                            <td>@Order.Email</td>
-                            <td>@Order.Phone</td>
-                            <td>@Order.Address</td>
-                            <td>@Order.Country</td>
-                            <td>@Order.City</td>
-                            <td>@Order.ZIPCode</td>
-                            <td> @Order.OrderStatus</td>
-                            <td>
-                                <form action="ChangeOrderStatus">
-                                    <input type="hidden" name="id" value="@Order.Id" />
-                                    <div class="dropdown">                                
-                                        <select onchange="this.form.submit()" name="status">
-                                            <!option value="@OrderStatus.Pending" @(Order.OrderStatus == OrderStatus.Pending ? "Selected" : "")>
-                                                Pending
-                                            <!option value="@OrderStatus.Preparation" @(Order.OrderStatus == OrderStatus.Preparation ? "Selected" : "")>
-                                                Preparation
-                                            </!option>
-                                            <!option value="@OrderStatus.Delivery" @(Order.OrderStatus == OrderStatus.Delivery ? "Selected" : "")>
-                                                Delivery
-                                            </!option>
-                                            <!option value="@OrderStatus.AtAddress" @(Order.OrderStatus == OrderStatus.AtAddress ? "Selected" : "")>
-                                                AtAddress
-                                            </!option>
-                                        </select>
-                                    </div>
-                                   
-                                </form>
-                            </td>
-                        </tr>
-                    }
+                                    @foreach (var Order in Model)
+                                    {
+                                        <tr>
+                                            <td>@Order.Id</td>
+                                            <td>@Order.FirstName</td>
+                                            <td>@Order.Email</td>
+                                            <td>@Order.Phone</td>
+                                            <td>@Order.Address</td>
+                                            <td>@Order.Country</td>
+                                            <td>@Order.City</td>
+                                            <td>@Order.ZIPCode</td>
+                                            <td> @Order.OrderStatus</td>
+                                            <td>
+                                                <form action="ChangeOrderStatus">
+                                                    <input type="hidden" name="id" value="@Order.Id" />
+                                                    <div class="dropdown">
+                                                        <select onchange="this.form.submit()" name="status">
+                                                            <!option value="@OrderStatus.Pending" @(Order.OrderStatus == OrderStatus.Pending ? "Selected" : "")>
+                                                                Pending
+                                                            <!option value="@OrderStatus.Preparation" @(Order.OrderStatus == OrderStatus.Preparation ? "Selected" : "")>
+                                                                Preparation
+                                                            </!option>
+                                                            <!option value="@OrderStatus.Delivery" @(Order.OrderStatus == OrderStatus.Delivery ? "Selected" : "")>
+                                                                Delivery
+                                                            </!option>
+                                                            <!option value="@OrderStatus.AtAddress" @(Order.OrderStatus == OrderStatus.AtAddress ? "Selected" : "")>
+                                                                AtAddress
+                                                            </!option>
+                                                        </select>
+                                                    </div>
+
+                                                </form>
+                                            </td>
+                                        </tr>
+}
 
 
                                 </tbody>

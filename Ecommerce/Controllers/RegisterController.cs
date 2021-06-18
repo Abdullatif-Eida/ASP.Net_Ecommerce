@@ -35,13 +35,10 @@ namespace Ecommerce.Controllers
                 EmailConfirmed = true,
             };
                 var resutlt=   await _userManager.CreateAsync(appUser, user.Password);
-            return View();
+            return RedirectToAction("LoginSuccess");
         }
+
         public IActionResult Login()
-        {
-            return View();
-        }
-        public IActionResult LoginFaild()
         {
             return View();
         }
@@ -59,6 +56,46 @@ namespace Ecommerce.Controllers
             }
         }
 
+        public IActionResult LoginFaild()
+        {
+            return View();
+        }
+        [HttpPost]
+        public async Task<IActionResult> LoginFaild(RegisterVM user)
+        {
+            var result = await _signInManager.PasswordSignInAsync(user.Email, user.Password, true, false);
+            if (result.Succeeded)
+            {
+                return RedirectToAction("Index", "AdminHome");
+            }
+            else
+            {
+                return RedirectToAction("LoginFaild");
+            }
+        }
+
+        public IActionResult LoginSuccess()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> LoginSuccess(RegisterVM user)
+        {
+            var result = await _signInManager.PasswordSignInAsync(user.Email, user.Password, true, false);
+            if (result.Succeeded)
+            {
+                return RedirectToAction("Index", "AdminHome");
+            }
+            else
+            {
+                return RedirectToAction("LoginFaild");
+            }
+        }
+        public IActionResult AccessDenied()
+        {
+            return View();
+        }
 
     }
 }

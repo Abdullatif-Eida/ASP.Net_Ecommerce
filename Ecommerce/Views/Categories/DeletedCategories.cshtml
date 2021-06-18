@@ -1,12 +1,21 @@
-﻿{
-    ViewData["Title"] = "Category";
+﻿
+@{
+    ViewData["Title"] = "Deleted Categories Page";
+    ViewData["Active"] = true;
 }
 @model List<Ecommerce.CategoryVM>;
 <div class="main">
     <!-- MAIN CONTENT -->
     <div class="main-content">
         <div class="container-fluid">
-            <h3 class="page-title">Tables</h3>
+            <h3 class="page-title">
+                <span style="color:darkslategrey">
+                    @if (ViewBag.Title != null)
+                    {
+                        @ViewBag.Title}
+                </span>
+            </h3>
+
 
             <div class="row">
                 <div class="col-md-6" style="width: 100%;">
@@ -41,22 +50,22 @@
                                 <tbody>
                                     @foreach (var category in Model)
                                     {
-                        <tr>
-                            <td>@category.Id</td>
-                            <td><img class="fa-circle" style="height:50px;width:50px;border-radius:50%;" src="~/Imageuploads/Categories/@(category.ImageId).png"></td>
-                            <td>@category.Name</td>
-                            <td>@category.Description</td>
-                            <td>@category.CreationDate</td>
-                            <td>
-                                <div class="dropdown">
-                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="icon-submenu fa fa-ellipsis-h"></i></a>
-                                    <ul class="dropdown-menu" style="position: absolute;top: 100%;left: -68px;text-align: left;">
-                                        <li> <a href="#"><i class="lnr lnr-eye"></i>View</a></li>
-                                        <li> <a href="@Url.ActionLink("Get_Category_Again",controller:"Categories",new { id=category.Id })"><i class="fa fa-check-circle"></i>Active Category</a></li>
-                                    </ul>
-                                </div>
-                            </td>
-                        </tr>
+                                        <tr>
+                                            <td>@category.Id</td>
+                                            <td><img class="fa-circle" style="height:50px;width:50px;border-radius:50%;" src="~/Imageuploads/Categories/@(category.ImageId).png"></td>
+                                            <td>@category.Name</td>
+                                            <td>@category.Description</td>
+                                            <td>@category.CreationDate</td>
+                                            <td>
+                                                <div class="dropdown">
+                                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="icon-submenu fa fa-ellipsis-h"></i></a>
+                                                    <ul class="dropdown-menu" style="position: absolute;top: 100%;left: -68px;text-align: left;">
+                                                        <li> <a href="#"><i class="lnr lnr-eye"></i>View</a></li>
+                                                        <li> <a href="@Url.ActionLink("Get_Category_Again",controller:"Categories",new { id=category.Id })"><i class="fa fa-check-circle"></i>Active Category</a></li>
+                                                    </ul>
+                                                </div>
+                                            </td>
+                                        </tr>
 }
 
 

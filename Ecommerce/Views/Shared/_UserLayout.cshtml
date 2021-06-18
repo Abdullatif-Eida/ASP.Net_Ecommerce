@@ -2,7 +2,11 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>E Store - eCommerce HTML Template</title>
+    <title>
+        @if (ViewBag.Title != null)
+        {
+@ViewBag.Title}
+    </title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <meta content="eCommerce HTML Template Free Download" name="keywords">
     <meta content="eCommerce HTML Template Free Download" name="description">
@@ -18,7 +22,8 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
     <link href="~/User/lib/slick/slick.css" rel="stylesheet">
     <link href="~/User/lib/slick/slick-theme.css" rel="stylesheet">
-
+    <link rel="apple-touch-icon" sizes="76x76" href="~/assets/img/Eida-designstyle-summer-m.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="~/assets/img/Eida-designstyle-summer-m.png">
     <!-- Template Stylesheet -->
     <link href="~/User/css/style.css" rel="stylesheet">
 </head>

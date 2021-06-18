@@ -1,13 +1,20 @@
-﻿{
-    ViewData["Title"] = "Brands";
+﻿@{
+    ViewData["Title"] = "Delete Brand Page";
+    ViewData["Active"] = true;
 }
 @model List<Ecommerce.BrandVM>; 
 <div class="main">
     <!-- MAIN CONTENT -->
     <div class="main-content">
         <div class="container-fluid">
-            <h3 class="page-title">Tables</h3>
- 
+            <h3 class="page-title">
+                 <span style="color:darkslategrey">
+                    @if (ViewBag.Title != null)
+                    {
+                        @ViewBag.Title}
+                </span>
+            </h3>
+
             <div class="row">
                 <div class="col-md-6" style="width: 100%;">
                     <!-- TABLE HOVER -->
@@ -41,23 +48,22 @@
                                 <tbody>
                                     @foreach (var brand in Model)
                                     {
-                                <tr>
-                                    <td>@brand.Id</td>
-                                    <td><img class="fa-circle" style="height:50px;width:50px;border-radius:50%;" src="~/Imageuploads/Brands/@(brand.ImageId).png" /></td>
-                                    <td>@brand.Name</td>
-                                    <td>@brand.Description</td>
-                                    <td>@brand.CreationDate</td>
-                                    <td>
-                                        <div class="dropdown">
-                                            <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="icon-submenu fa fa-ellipsis-h"></i></a>
-                                            <ul class="dropdown-menu" style="position: absolute;top: 100%;left: -68px;text-align: left;">
-                                                <li> <a href="@Url.ActionLink("Get_Brand_Again",controller:"Brands",new { id=brand.Id })"><i class="fa fa-check-circle"></i>Active The Brand</a></li>
-                                                <li> <a href="@Url.ActionLink("FinalDelete_Brand",controller:"Brands",new { id=brand.Id })"><i class="lnr lnr-trash"></i>Delete</a></li>
-                                            </ul>
-                                        </div>
-                                    </td>
-                                </tr>
-}
+                        <tr>
+                            <td>@brand.Id</td>
+                            <td><img class="fa-circle" style="height:50px;width:50px;border-radius:50%;" src="~/Imageuploads/Brands/@(brand.ImageId).png" /></td>
+                            <td>@brand.Name</td>
+                            <td>@brand.Description</td>
+                            <td>@brand.CreationDate</td>
+                            <td>
+                                <div class="dropdown">
+                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="icon-submenu fa fa-ellipsis-h"></i></a>
+                                    <ul class="dropdown-menu" style="position: absolute;top: 100%;left: -68px;text-align: left;">
+                                        <li> <a href="@Url.ActionLink("Get_Brand_Again",controller:"Brands",new { id=brand.Id })"><i class="fa fa-check-circle"></i>Active The Brand</a></li>
+                                        <li> <a href="@Url.ActionLink("FinalDelete_Brand",controller:"Brands",new { id=brand.Id })"><i class="lnr lnr-trash"></i>Delete</a></li>
+                                    </ul>
+                                </div>
+                            </td>
+                        </tr>}
 
 
                                 </tbody>
@@ -67,7 +73,7 @@
                     <!-- END TABLE HOVER -->
                 </div>
             </div>
-            
+
         </div>
     </div>
     <!-- END MAIN CONTENT -->

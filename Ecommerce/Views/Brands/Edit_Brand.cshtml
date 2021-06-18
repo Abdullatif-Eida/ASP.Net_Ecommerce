@@ -1,5 +1,6 @@
-﻿{
-    ViewData["Title"] = "Create Brands";
+﻿@{
+    ViewData["Title"] = "Create Brand Page";
+    ViewData["Active"] = true;
 }
 
 @model Ecommerce.BrandVM;
@@ -7,7 +8,13 @@
     <!-- MAIN CONTENT -->
     <div class="main-content">
         <div class="container-fluid">
-            <h3 class="page-title">Edit Brand</h3>
+            <h3 class="page-title">
+                 <span style="color:darkslategrey">
+                    @if (ViewBag.Title != null)
+                    {
+                        @ViewBag.Title}
+                </span>
+            </h3>
             <div class="row">
                 <div class="col-md-12">
 
@@ -31,7 +38,7 @@
                                 <br>
                                 <br>
                                 <label> Enter Brand Image </label>
-                                <input required="required" name="file" type="file" class="" placeholder="Enter Brand Image">
+                                <input name="file" type="file" class="" placeholder="Enter Brand Image">
                                 <p class="demo-button" style="margin-top: 2rem;margin: 0 80px -31px;">
                                     <button type="submit" class="btn btn-outline-primary btn-toastr" data-context="info" data-message="Hi, I'm here" data-position="bottom-right">Save</button>
                                 </p>

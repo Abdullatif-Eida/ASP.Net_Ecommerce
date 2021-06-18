@@ -1,14 +1,22 @@
-﻿{
-    ViewData["Title"] = "Brands";
+﻿@{
+    ViewData["Title"] = "Categories Page";
+    ViewData["Active"] = true;
 }
-@model List<Ecommerce.CategoryVM>; 
+
+@model List<Ecommerce.CategoryVM>;
 <div class="main">
     <!-- MAIN CONTENT -->
     <div class="main-content">
         <div class="container-fluid">
-            <h3 class="page-title">Tables</h3>
- 
-            <div class="row">             
+            <h3 class="page-title">
+                <span style="color:darkslategrey">
+                    @if (ViewBag.Title != null)
+                    {
+                        @ViewBag.Title}
+                </span>
+            </h3>
+
+            <div class="row">
                 <div class="col-md-6" style="width: 100%;">
                     <!-- TABLE HOVER -->
                     <div class="panel">
@@ -16,8 +24,8 @@
                             <h3 class="panel-title">Categories</h3>
                         </div>
                         <div class="dropdown" style="margin-top: -4rem;margin-left: 106rem;">
-                            <a style="color: black"; href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="icon-submenu lnr lnr-chevron-down"></i> <span></span><span>More Options</span> </a>
-                            <ul class="dropdown-menu"style="position: absolute;top: 100%;left: -68px;text-align: left;">
+                            <a style="color: black" ; href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="icon-submenu lnr lnr-chevron-down"></i> <span></span><span>More Options</span> </a>
+                            <ul class="dropdown-menu" style="position: absolute;top: 100%;left: -68px;text-align: left;">
                                 <li>
                                     <a href="@Url.ActionLink("Create_Category",controller:"Categories")"><i class="fa fa-plus-square"></i> Create New Category </a>
                                 </li>
@@ -25,7 +33,7 @@
                                     <a href="@Url.ActionLink("DeletedCategories",controller:"Categories")"><i class="fa lnr lnr-trash"></i> Trash </a>
                                 </li>
                             </ul>
-                        </div>                      
+                        </div>
                         <div class="panel-body">
                             <table class="table table-hover">
                                 <thead>
@@ -41,23 +49,24 @@
                                 <tbody>
                                     @foreach (var category in Model)
                                     {
-                                    <tr>
-                                        <td>@category.Id</td>
-                                        <td><img class="fa-circle" style="height:50px;width:50px;border-radius:50%;" src="~/Imageuploads/Categories/@(category.ImageId).png" ></td>
-                                        <td>@category.Name</td>
-                                        <td>@category.Description</td>
-                                        <td>@category.CreationDate</td>
-                                        <td>
-                                            <div class="dropdown">
-                                                <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="icon-submenu fa fa-ellipsis-h"></i></a>
-                                                <ul class="dropdown-menu" style="position: absolute;top: 100%;left: -68px;text-align: left;">
-                                                    <li> <a href="#"><i class="lnr lnr-eye"></i>View</a></li>
-                                                    <li> <a href="@Url.ActionLink("Edit_Category",controller:"Categories",new { id=category.Id })"><i class="lnr lnr-pencil"></i>Edit</a></li>
-                                                    <li> <a href="@Url.ActionLink("Delete_Category",controller:"Categories",new { id=category.Id })"><i class="lnr lnr-trash"></i>Delete</a></li>
-                                                </ul>
-                                            </div>
-                                        </td>
-                                    </tr>}
+                                        <tr>
+                                            <td>@category.Id</td>
+                                            <td><img class="fa-circle" style="height:50px;width:50px;border-radius:50%;" src="~/Imageuploads/Categories/@(category.ImageId).png"></td>
+                                            <td>@category.Name</td>
+                                            <td>@category.Description</td>
+                                            <td>@category.CreationDate</td>
+                                            <td>
+                                                <div class="dropdown">
+                                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="icon-submenu fa fa-ellipsis-h"></i></a>
+                                                    <ul class="dropdown-menu" style="position: absolute;top: 100%;left: -68px;text-align: left;">
+                                                        <li> <a href="#"><i class="lnr lnr-eye"></i>View</a></li>
+                                                        <li> <a href="@Url.ActionLink("Edit_Category",controller:"Categories",new { id=category.Id })"><i class="lnr lnr-pencil"></i>Edit</a></li>
+                                                        <li> <a href="@Url.ActionLink("Delete_Category",controller:"Categories",new { id=category.Id })"><i class="lnr lnr-trash"></i>Delete</a></li>
+                                                    </ul>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    }
 
 
                                 </tbody>
@@ -67,7 +76,7 @@
                     <!-- END TABLE HOVER -->
                 </div>
             </div>
-            
+
         </div>
     </div>
     <!-- END MAIN CONTENT -->

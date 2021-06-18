@@ -1,5 +1,6 @@
-﻿{
-    ViewData["Title"] = "Category";
+﻿@{
+    ViewData["Title"] = "Edit Categories Page";
+    ViewData["Active"] = true;
 }
 @model List<Ecommerce.CategoryVM>;
 <div class="main">
@@ -7,7 +8,13 @@
     <div class="main-content">
         <div class="container-fluid">
 
-            <h3 class="page-title">Tables</h3>
+            <h3 class="page-title">
+                <span style="color:darkslategrey">
+                    @if (ViewBag.Title != null)
+                    {
+                        @ViewBag.Title}
+                </span>
+            </h3>
             <div class="alert alert-success alert-dismissible" role="alert">
                 <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                 <i class="fa fa-check-circle"></i> The Categories have been succesfully Changed
@@ -45,23 +52,24 @@
                                 <tbody>
                                     @foreach (var category in Model)
                                     {
-                        <tr>
-                            <td>@category.Id</td>
-                            <td><img class="fa-circle" style="height:50px;width:50px;border-radius:50%;" src="~/Imageuploads/Categories/@(category.ImageId).png"></td>
-                            <td>@category.Name</td>
-                            <td>@category.Description</td>
-                            <td>@category.CreationDate</td>
-                            <td>
-                                <div class="dropdown">
-                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="icon-submenu fa fa-ellipsis-h"></i></a>
-                                    <ul class="dropdown-menu" style="position: absolute;top: 100%;left: -68px;text-align: left;">
-                                        <li> <a href="#"><i class="lnr lnr-eye"></i>View</a></li>
-                                        <li> <a href="@Url.ActionLink("Edit_Category",controller:"Categories",new { id=category.Id })"><i class="lnr lnr-pencil"></i>Edit</a></li>
-                                        <li> <a href="@Url.ActionLink("Delete_Category",controller:"Categories",new { id=category.Id })"><i class="lnr lnr-trash"></i>Delete</a></li>
-                                    </ul>
-                                </div>
-                            </td>
-                        </tr>}
+                                        <tr>
+                                            <td>@category.Id</td>
+                                            <td><img class="fa-circle" style="height:50px;width:50px;border-radius:50%;" src="~/Imageuploads/Categories/@(category.ImageId).png"></td>
+                                            <td>@category.Name</td>
+                                            <td>@category.Description</td>
+                                            <td>@category.CreationDate</td>
+                                            <td>
+                                                <div class="dropdown">
+                                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="icon-submenu fa fa-ellipsis-h"></i></a>
+                                                    <ul class="dropdown-menu" style="position: absolute;top: 100%;left: -68px;text-align: left;">
+                                                        <li> <a href="#"><i class="lnr lnr-eye"></i>View</a></li>
+                                                        <li> <a href="@Url.ActionLink("Edit_Category",controller:"Categories",new { id=category.Id })"><i class="lnr lnr-pencil"></i>Edit</a></li>
+                                                        <li> <a href="@Url.ActionLink("Delete_Category",controller:"Categories",new { id=category.Id })"><i class="lnr lnr-trash"></i>Delete</a></li>
+                                                    </ul>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    }
 
 
                                 </tbody>

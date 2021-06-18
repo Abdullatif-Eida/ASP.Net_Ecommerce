@@ -1,5 +1,5 @@
 ﻿@{ Layout = "_UserLayout";
-
+    ViewData["Title"] = "Item Details";
 
     @model Ecommerce.ItemVM;
 }
@@ -12,7 +12,7 @@
                     <div class="row align-items-center">
                         <div class="col-md-5">
                             <div class="header-slider normal-slider">
-                                @foreach(var image in Model.Images) { 
+                                @foreach (var image in Model.Images) {
                                 <div class="header-slider-item">
                                     <img style="width: 25rem; float:left; height: auto;margin-left: 6rem;" src="~/Imageuploads/Items/@(image).png" alt="Slider Image" />
                                 </div>    

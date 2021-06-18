@@ -1,20 +1,26 @@
-﻿{
-    ViewData["Title"] = "Create Brands";
+﻿@{
+    ViewData["Title"] = "Create Brand Page";
+    ViewData["Active"] = true;
 }
-
 @model Ecommerce.BrandVM;
 <div class="main">
     <!-- MAIN CONTENT -->
     <div class="main-content">
         <div class="container-fluid">
-            <h3 class="page-title"><i class="fa fa-plus-square"></i>  <span></span> Create New Brand</h3>
+            <h3 class="page-title">
+                <span style="color:darkslategrey">
+                    @if (ViewBag.Title != null)
+                    {
+                        @ViewBag.Title}
+                </span>
+            </h3>
             <div class="panel-body">
-               
+
                 <div class="alert alert-success alert-dismissible" role="alert">
                     <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                     <i class="fa fa-check-circle"></i> The Brand have been succesfully Added
                 </div>
-                
+
             </div>
             <div class="row">
                 <div class="col-md-12">
@@ -28,13 +34,13 @@
                             <input type="hidden" asp-for="Id" />
                             <div class="panel-body">
                                 <label> Name </label>
-                                <input required="required"  asp-for="Name" type="text" value="" class="form-control" placeholder="Enter Brand Name">
+                                <input required="required" asp-for="Name" type="text" value="" class="form-control" placeholder="Enter Brand Name">
                                 <br>
                                 <label> Description </label>
                                 <textarea required="required" value="" asp-for="Description" class="form-control" placeholder="Enter Brand Description" rows="4"></textarea>
                                 <br>
                                 <label> Enter Brand Image </label>
-                                <input required="required"  name="file" value="" type="file" class="" placeholder="Enter Brand Image">
+                                <input required="required" name="file" value="" type="file" class="" placeholder="Enter Brand Image">
                                 <p class="demo-button" style="margin-top: 2rem;margin: 0 0 -31px;">
                                     <button type="submit" class="btn btn-outline-primary btn-toastr">Add New Brand</button>
                                 </p>

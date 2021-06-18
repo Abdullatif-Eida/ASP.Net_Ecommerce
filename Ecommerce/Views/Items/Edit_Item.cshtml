@@ -1,7 +1,7 @@
-﻿{
-    ViewData["Title"] = "Create Category";
+﻿@{
+    ViewData["Title"] = "EditItems";
+    ViewData["Active"] = true;
 }
-
 @model Ecommerce.ItemVM;
 @using Ecommerce.Enum;
 <div class="main">
@@ -29,12 +29,12 @@
                                 </select>
                                 <br>
                                 <label> Brands Parent </label>
-                                <select class="form-control" asp-items="@ViewBag.ListBrands" asp-for="BrandId">
+                                <select class="form-control" required="required" asp-items="@ViewBag.ListBrands" asp-for="BrandId">
                                     <option selected="">select Brand</option>
                                 </select>
                                 <br>
                                 <label> Color </label>
-                                <select class="form-control" asp-items="@Html.GetEnumSelectList<Color>()" asp-for="Color">
+                                <select class="form-control" required="required" asp-items="@Html.GetEnumSelectList<Color>()" asp-for="Color">
                                     <option selected="">select Brand</option>
                                 </select>
                                 <br>
@@ -42,24 +42,23 @@
                                 <input asp-for="Price" type="number" required="required" class="form-control" placeholder="Enter Brand Name">
                                 <br>
                                 <label> Description </label>
-                                <textarea asp-for="Description" class="form-control" required="required" placeholder="Enter Brand Description" rows="4"></textarea>
+                                <textarea asp-for="Description" class="form-control"  required="required" placeholder="Enter Brand Description" rows="4"></textarea>
                                 <br>
                                 <label> Short Description </label>
                                 <textarea asp-for="ShortDescription" class="form-control" required="required" placeholder="Enter Brand Description" rows="4"></textarea>
                                 <br>
-                                <label> Enter Category Images </label>
+                                <label> Enter Item Images </label>
                                 @if (Model.Images.Count > 0)
                                 {
                                     foreach (var image in Model.Images)
                                     {
-                                        <div>
-                                        <div> <a href="@Url.ActionLink("DeleteImage","Items",new {id=image})">Delete</a>  </div>
-                                        <img src="~/Imageuploads/Items/@(image).png" />
-                                        </div>
-                                    }
-                                 }
+                    <div>
+                        <div> <a href="@Url.ActionLink("DeleteImage","Items",new {id=image})">Delete</a>  </div>
+                        <img src="~/Imageuploads/Items/@(image).png" />
+                    </div>}
+                                }
 
-                                <input name="files" multiple="multiple" type="file" class="" placeholder="Enter Brand Image">
+                                <input name="files" required="required" multiple="multiple" type="file" class="" placeholder="Enter Brand Image">
                                 <p class="demo-button" style="margin-top: 2rem;margin: 0 0 -31px;">
                                     <button type="submit" class="btn btn-outline-primary btn-toastr" data-context="info" data-message="Hi, I'm here" data-position="bottom-right">Edit Item</button>
                                 </p>

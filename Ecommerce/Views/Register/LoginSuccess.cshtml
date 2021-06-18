@@ -1,14 +1,19 @@
 ﻿@{ Layout = "_UserLayout";
-    ViewData["Title"] = "Login";
-
+    ViewData["Title"] = "Login Success";
 
 @model Ecommerce.Vm.RegisterVM;
 }
-<div class="login">
+<!-- Login Start -->
+<h1 style="margin-top: 2rem; margin-bottom: 2rem; margin-left: 31rem;"> Login Your Account </h1>
+
+<div class="alert alert-success alert-dismissible" role="alert" style="width:92%;margin-left: 4rem;">
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+    Please Login
+</div>
+<div style="padding-top: 3px;" class="login">
     <form method="post">
         <div class="container-fluid">
             <div class="row">
-                <h1 style="margin-top: -2rem; margin-bottom: 2rem; margin-left: 31rem;"> Login Your Account </h1>
                 <div class="col-lg-12">
                     <div class="register-form">
                         <div class="row">

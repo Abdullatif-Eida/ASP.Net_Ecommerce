@@ -1,20 +1,29 @@
-﻿{
-    ViewData["Title"] = "Create Brands";
+﻿@{
+    ViewData["Title"] = "Create Categories Page";
+    ViewData["Active"] = true;
 }
+
 
 @model Ecommerce.CategoryVM;
 <div class="main">
     <!-- MAIN CONTENT -->
     <div class="main-content">
         <div class="container-fluid">
-            <h3 class="page-title"><i class="fa fa-plus-square"></i>  <span></span> Create New Category</h3>
+            <h3 class="page-title">
+                <span style="color:darkslategrey">
+                    @if (ViewBag.Title != null)
+                    {
+                        @ViewBag.Title}
+                </span>
+            </h3>
+
             <div class="panel-body">
-               
+
                 <div class="alert alert-success alert-dismissible" role="alert">
                     <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                     <i class="fa fa-check-circle"></i> The Category have been succesfully Added
                 </div>
-                
+
             </div>
             <div class="row">
                 <div class="col-md-12">

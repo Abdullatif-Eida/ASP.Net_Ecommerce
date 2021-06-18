@@ -23,9 +23,9 @@ namespace Ecommerce.Areas.Identity
                     .AddEntityFrameworkStores<EcommerceContext>();
 
                 services.ConfigureApplicationCookie(optins => {
-                    optins.LoginPath = $"/Register/Login";
+                    optins.LoginPath = $"/Register/AccessDenied";
                     optins.LogoutPath = $"/Register/Logout";
-                    optins.AccessDeniedPath = $"/Register/Login";
+                    optins.AccessDeniedPath = $"/Register/AccessDenied";
                 });
             });
         }

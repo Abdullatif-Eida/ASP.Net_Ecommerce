@@ -1,0 +1,24 @@
+﻿@{ Layout = "_UserLayout";
+    ViewData["Title"] = "AccessDenied";
+
+@model Ecommerce.Vm.RegisterVM;
+}
+<div style=" height: 50vh; display: flex; flex-direction: row; align-items: center; justify-content: space-between;" class="container">
+    <div class="error-text">
+        <h2>Access Denied</h2>
+        <br />
+        <p class="">It seems that you're lost. Let us help guide you out and get you back home.</p>
+        <div class="buttons">
+            <a class="btn btn-outline-primary" href="@Url.ActionLink("Index",controller:"Home")">Back</a>
+            <a class="btn btn-outline-primary" href="@Url.ActionLink("Login",controller:"Register")">Login</a>
+
+        </div>
+    </div>
+    <div class="error-image">
+        <div class="barrier">
+            <img style=" max-height: 400px;" alt="Access Denied" src="https://vectr.com/egkcd/a188ZTVkBX.svg?width=640&height=640&select=a188ZTVkBXpage0" />
+        </div>
+        <div class="ship"></div>
+    </div>
+</div>
+

@@ -1,4 +1,5 @@
 ﻿@{ Layout = "_UserLayout";
+    ViewData["Title"] = "Shop";
 
 @model Ecommerce.Vm.HomeVM;
 }
@@ -95,7 +96,7 @@
                             @foreach (var Category in Model.ListCategoryItems)
                             {
                 <li class="nav-item">
-                    <a class="nav-link" href="#"><img style="width:24px;height:24px" src="~/Imageuploads/Categories/@(Category.ImageId).png" alt="Product Image"><span> - </span>@Category.Name</a>
+                    <a class="nav-link" href="@Url.ActionLink("GetItemByCategory", "Home", new {id=Category.Id})"><img style="width:24px;height:24px" src="~/Imageuploads/Categories/@(Category.ImageId).png" alt="Product Image"><span> - </span>@Category.Name</a>
 
                 </li>}
                         </ul>
@@ -140,7 +141,7 @@
                     <h2 class="title">Our Brands</h2>
                     <ul>
                         @foreach (var Brands in Model.ListBrands) {
-                    <li><a href="#">@Brands.Name </a></li>
+                    <li><a href="@Url.ActionLink("GetItemByBrand", "Home", new {id=Brands.Id})">@Brands.Name </a></li>
                         }
                     </ul>
                 </div>
@@ -172,7 +173,9 @@
         <div class="brand-slider">
             @foreach (var Brands in Model.ListBrands)
             {
-        <div class="brand-item"><img class="fa-circle" style="height:90px;width:120px;" src="~/Imageuploads/Brands/@(Brands.ImageId).png" /></div>
+            <a href="@Url.ActionLink("GetItemByBrand", "Home" , new {id=Brands.Id})">
+                <div class="brand-item"><img class="fa-circle" style="height:90px;width:120px;" src="~/Imageuploads/Brands/@(Brands.ImageId).png" /></div>
+                            </a>
             }
                     </div>
     </div>

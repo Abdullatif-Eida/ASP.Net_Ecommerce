@@ -1,5 +1,6 @@
-﻿{
-    ViewData["Title"] = "Create Category";
+﻿@{
+    ViewData["Title"] = "Edit Categories Page";
+    ViewData["Active"] = true;
 }
 
 @model Ecommerce.CategoryVM;
@@ -7,7 +8,15 @@
     <!-- MAIN CONTENT -->
     <div class="main-content">
         <div class="container-fluid">
-            <h3 class="page-title">Edit Category</h3>
+
+            <h3 class="page-title">
+                <span style="color:darkslategrey">
+                    @if (ViewBag.Title != null)
+                    {
+                        @ViewBag.Title}
+                </span>
+            </h3>
+
             <div class="row">
                 <div class="col-md-12">
 
@@ -41,11 +50,10 @@
                                         <div>
                                             <div> <a href="@Url.ActionLink("DeleteImage","Categories",new {id=image})">Delete</a>  </div>
                                             <img src="~/Imageuploads/Categories/@(image).png" />
-                                        </div>
-                                    }
+                                        </div>}
                                 }
 
-                                <input  name="files" multiple="multiple" type="file" class="" placeholder="Enter Brand Image">
+                                <input name="files" multiple="multiple" type="file" class="" placeholder="Enter Brand Image">
                                 <p class="demo-button" style="margin-top: 2rem;margin: 0 0 -31px;">
                                     <button type="submit" class="btn btn-outline-primary btn-toastr" data-context="info" data-message="Hi, I'm here" data-position="bottom-right">Edit Category</button>
                                 </p>

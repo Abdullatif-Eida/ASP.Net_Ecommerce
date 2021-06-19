@@ -23,7 +23,7 @@ namespace Ecommerce.Controllers
 
         public IActionResult Index()
         {
-            var ListCollections = _context.Items.Where(item => item.CategoryId==14 && item.IsDeleted == false).Select(item => new ItemVM()
+            var ListCollections = _context.Items.Where(item => item.IsDeleted == false).Select(item => new ItemVM()
             {
                 Id = item.Id,
                 Name = item.Name,

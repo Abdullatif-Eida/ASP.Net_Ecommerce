@@ -1,5 +1,6 @@
 ﻿@{ Layout = "_UserLayout";
-    ViewData["Title"] = "Chek Out";
+    ViewData["Title"] = "Checkout";
+
 
     @model Ecommerce.Vm.ChekoutVM;
 }
@@ -22,7 +23,7 @@
                 <div class="col-lg-8">
                     <div class="checkout-inner">
                         <div class="billing-address">
-                            <h2>Billing Address</h2>
+                            <h2>Shipping and Billing Address</h2>
                             <div class="row">
                                 <input asp-for="Item.Id" type="hidden" />
                                 <div class="col-md-6">
@@ -31,79 +32,34 @@
                                 </div>
                                 <div class="col-md-6">
                                     <label asp-for="LastName">Last Name"</label>
-                                    <input asp-for="LastName" required="required" class="form-control" type="text" placeholder="Last Name">
+                                    <input asp-for="LastName" required-="required" class="form-control" type="text" placeholder="Last Name">
                                 </div>
                                 <div class="col-md-6">
                                     <label asp-for="Email">E-mail</label>
-                                    <input asp-for="Email" class="form-control" required="required" type="email" placeholder="E-mail">
+                                    <input asp-for="Email" required="required" class="form-control" type="email" placeholder="E-mail">
                                 </div>
                                 <div class="col-md-6">
                                     <label asp-for="Phone">Mobile No</label>
-                                    <input asp-for="Phone" class="form-control" required="required" type="number" placeholder="Mobile No">
+                                    <input asp-for="Phone" required="required" class="form-control" type="number" placeholder="Mobile No">
                                 </div>
                                 <div class="col-md-12">
                                     <label asp-for="Address">Address</label>
-                                    <input asp-for="Address" class="form-control" required="required" type="text" placeholder="Address">
+                                    <input asp-for="Address" required="required" class="form-control" type="text" placeholder="Address">
                                 </div>
                                 <div class="col-md-6">
                                     <label asp-for="Country">Country</label>
-                                    <input asp-for="Country" class="form-control" required="required" type="text" placeholder="Country">
+                                    <input asp-for="Country" required="required" class="form-control" type="text" placeholder="Country">
                                 </div>
                                 <div class="col-md-6">
                                     <label asp-for="City">City</label>
-                                    <input asp-for="City" class="form-control" required="required" type="text" placeholder="City">
+                                    <input asp-for="City" required"="required" class="form-control" type="text" placeholder="City">
                                 </div>
                                 <div class="col-md-12">
                                     <label asp-for="ZIPCode">ZIP Code</label>
-                                    <input asp-for="ZIPCode" class="form-control" required="required" type="number" placeholder="ZIP Code">
+                                    <input asp-for="ZIPCode" required="required" class="form-control" type="number" placeholder="ZIP Code">
                                 </div>                              
-                                <div class="col-md-12">
-                                    <div class="custom-control custom-checkbox">
-                                        <input type="checkbox" class="custom-control-input" id="shipto">
-                                        <label class="custom-control-label" for="shipto">Ship to different address</label>
-                                    </div>
-                                </div>
                             </div>
-                        </div>
-
-                        <div class="shipping-address">
-                            <h2>Shipping Address</h2>
-                            <div class="row">
-                                <input asp-for="Item.Id" type="hidden" />
-                                <div class="col-md-6">
-                                    <label asp-for="FirstName">First Name</label>
-                                    <input asp-for="FirstName" required="required" class="form-control" type="text" placeholder="First Name">
-                                </div>
-                                <div class="col-md-6">
-                                    <label asp-for="LastName">Last Name"</label>
-                                    <input asp-for="LastName" required="required" class="form-control" type="text" placeholder="Last Name">
-                                </div>
-                                <div class="col-md-6">
-                                    <label asp-for="Email">E-mail</label>
-                                    <input asp-for="Email" class="form-control" required="required" type="email" placeholder="E-mail">
-                                </div>
-                                <div class="col-md-6">
-                                    <label asp-for="Phone">Mobile No</label>
-                                    <input asp-for="Phone" class="form-control" required="required" type="number" placeholder="Mobile No">
-                                </div>
-                                <div class="col-md-12">
-                                    <label asp-for="Address">Address</label>
-                                    <input asp-for="Address" class="form-control" required="required" type="text" placeholder="Address">
-                                </div>
-                                <div class="col-md-6">
-                                    <label asp-for="Country">Country</label>
-                                    <input asp-for="Country" class="form-control" required="required" type="text" placeholder="Country">
-                                </div>
-                                <div class="col-md-6">
-                                    <label asp-for="City">City</label>
-                                    <input asp-for="City" class="form-control" required="required" type="text" placeholder="City">
-                                </div>
-                                <div class="col-md-12">
-                                    <label asp-for="ZIPCode">ZIP Code</label>
-                                    <input asp-for="ZIPCode" class="form-control" required="required" type="number" placeholder="ZIP Code">
-                                </div>                                                              
-                            </div>
-                        </div>
+                        </div>                      
                     </div>
 
                 </div>
@@ -125,7 +81,7 @@
                                     </div>
                                     <div class="payment-content" id="payment-1-show">
                                         <p>
-                                            Choose this if you wanr buy by Paypal.
+                                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras tincidunt orci ac eros volutpat maximus lacinia quis diam.
                                         </p>
                                     </div>
                                 </div>
@@ -136,7 +92,7 @@
                                     </div>
                                     <div class="payment-content" id="payment-2-show">
                                         <p>
-                                            Choose this if you wanr buy by Payoneer.
+                                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras tincidunt orci ac eros volutpat maximus lacinia quis diam.
                                         </p>
                                     </div>
                                 </div>
@@ -147,7 +103,7 @@
                                     </div>
                                     <div class="payment-content" id="payment-3-show">
                                         <p>
-                                            Choose this if you wanr buy by Check Payment.
+                                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras tincidunt orci ac eros volutpat maximus lacinia quis diam.
                                         </p>
                                     </div>
                                 </div>
@@ -158,7 +114,7 @@
                                     </div>
                                     <div class="payment-content" id="payment-4-show">
                                         <p>
-                                            Choose this if you wanr buy by Direct Bank Transfer.
+                                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras tincidunt orci ac eros volutpat maximus lacinia quis diam.
                                         </p>
                                     </div>
                                 </div>
@@ -169,7 +125,7 @@
                                     </div>
                                     <div class="payment-content" id="payment-5-show">
                                         <p>
-                                            Choose this if you wanr buy by Cash on Delivery.
+                                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras tincidunt orci ac eros volutpat maximus lacinia quis diam.
                                         </p>
                                     </div>
                                 </div>

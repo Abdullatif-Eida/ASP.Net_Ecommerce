@@ -30,6 +30,7 @@
                                 <thead>
                                     <tr>
                                         <th>Order ID</th>
+                                        <th>Item ID</th>
                                         <th>Order First Name</th>
                                         <th>Order Email</th>
                                         <th>Order Phone</th>
@@ -44,38 +45,39 @@
                                 <tbody>
                                     @foreach (var Order in Model)
                                     {
-                                        <tr>
-                                            <td>@Order.Id</td>
-                                            <td>@Order.FirstName</td>
-                                            <td>@Order.Email</td>
-                                            <td>@Order.Phone</td>
-                                            <td>@Order.Address</td>
-                                            <td>@Order.Country</td>
-                                            <td>@Order.City</td>
-                                            <td>@Order.ZIPCode</td>
-                                            <td> @Order.OrderStatus</td>
-                                            <td>
-                                                <form action="ChangeOrderStatus">
-                                                    <input type="hidden" name="id" value="@Order.Id" />
-                                                    <div class="dropdown">
-                                                        <select onchange="this.form.submit()" name="status">
-                                                            <!option value="@OrderStatus.Pending" @(Order.OrderStatus == OrderStatus.Pending ? "Selected" : "")>
-                                                                Pending
-                                                            <!option value="@OrderStatus.Preparation" @(Order.OrderStatus == OrderStatus.Preparation ? "Selected" : "")>
-                                                                Preparation
-                                                            </!option>
-                                                            <!option value="@OrderStatus.Delivery" @(Order.OrderStatus == OrderStatus.Delivery ? "Selected" : "")>
-                                                                Delivery
-                                                            </!option>
-                                                            <!option value="@OrderStatus.AtAddress" @(Order.OrderStatus == OrderStatus.AtAddress ? "Selected" : "")>
-                                                                AtAddress
-                                                            </!option>
-                                                        </select>
-                                                    </div>
+                                    <tr>
+                                        <td>@Order.Id</td>
+                                        <td>@Order.ItemId</td>
+                                        <td>@Order.FirstName</td>
+                                        <td>@Order.Email</td>
+                                        <td>@Order.Phone</td>
+                                        <td>@Order.Address</td>
+                                        <td>@Order.Country</td>
+                                        <td>@Order.City</td>
+                                        <td>@Order.ZIPCode</td>
+                                        <td> @Order.OrderStatus</td>
+                                        <td>
+                                            <form action="ChangeOrderStatus">
+                                                <input type="hidden" name="id" value="@Order.Id" />
+                                                <div class="dropdown">
+                                                    <select onchange="this.form.submit()" name="status">
+                                                        <!option value="@OrderStatus.Pending" @(Order.OrderStatus == OrderStatus.Pending ? "Selected" : "")>
+                                                            Pending
+                                                        <!option value="@OrderStatus.Preparation" @(Order.OrderStatus == OrderStatus.Preparation ? "Selected" : "")>
+                                                            Preparation
+                                                        </!option>
+                                                        <!option value="@OrderStatus.Delivery" @(Order.OrderStatus == OrderStatus.Delivery ? "Selected" : "")>
+                                                            Delivery
+                                                        </!option>
+                                                        <!option value="@OrderStatus.AtAddress" @(Order.OrderStatus == OrderStatus.AtAddress ? "Selected" : "")>
+                                                            AtAddress
+                                                        </!option>
+                                                    </select>
+                                                </div>
 
-                                                </form>
-                                            </td>
-                                        </tr>
+                                            </form>
+                                        </td>
+                                    </tr>
 }
 
 

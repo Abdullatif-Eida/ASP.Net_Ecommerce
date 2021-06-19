@@ -8,6 +8,7 @@ namespace Ecommerce.Vm
     public class ChekoutVM
     {
         public int Id { get; set; }
+        public int ItemId { get; set; }
         public ItemVM Item { get; set; }
         public String FirstName { get; set; }
         public String LastName { get; set; }

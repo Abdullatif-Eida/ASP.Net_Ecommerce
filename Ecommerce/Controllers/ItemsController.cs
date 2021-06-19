@@ -232,6 +232,7 @@ namespace Ecommerce.Controllers
             var orderList = _dbContext.Orders.ToList().Select(order => new ChekoutVM() 
             {
                 Id=order.Id,
+                ItemId=order.itemId,
                 FirstName = order.FirstName,
                 LastName = order.LastName,
                 Email=order.Email,

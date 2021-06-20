@@ -48,7 +48,7 @@ namespace Ecommerce.Controllers
             var result = await _signInManager.PasswordSignInAsync(user.Email, user.Password, true, false);
             if(result.Succeeded)
             {
-                return RedirectToAction("Index", "AdminHome");
+                return RedirectToAction("Index", "Home");
             }
             else
             {

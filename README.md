@@ -13,3 +13,5 @@ In  my complete e-commerce app, show how you how you can create a nice clean onb
 ![image](https://user-images.githubusercontent.com/35701617/153743217-93afde01-64f6-488d-b7d2-b338c2fa1431.png)
 ![image](https://user-images.githubusercontent.com/35701617/153743225-1cb000ed-97b1-4541-bf18-adf5009795e0.png)
  
+# Clone it
+you can clone this project by pesting the followning command in your terminal "https://github.com/Abdullatif-Eida/ASP.Net_Ecommerce.git"
